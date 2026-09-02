@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# Virtualenv (recreate with: python3 -m venv .venv && .venv/bin/pip install pytest)
+.venv/
+
+# Test + coverage artifacts
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Run internals. Results themselves (attempts, cells, provenance, REPORT.md)
+# ARE tracked: they are the experimental record. Session locks and compiler
+# scratch are not.
+results/**/.sessions/
+results/**/work/
+*.rmeta
