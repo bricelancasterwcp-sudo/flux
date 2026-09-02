@@ -10,15 +10,20 @@ ever sees a diagnostic. The question is how much of the small-model Rust
 deficit that removes on its own, and whether the model repairs the
 residual better than it repairs the raw program.
 
-**Status (2026-09-02): CLOSED as a $0 census.** Phase 0 ran on the committed data and read **k = 15 against a derived floor of 16 — Phase 1 not funded.** Ceiling on large-tier pass@1 0.075, deterministic component 0.010; 13 of 15 suggestion-fixed programs compile and print the wrong answer. Report: `results/phase0-2026-09-02/REPORT.md`.
-
 ## Status
 
-**Spec stage, awaiting owner approval.** Nothing has been measured by
-flux. The pre-registered design is
+**Closed on 2026-09-02 as a $0 census; Phase 1 was not funded.** The
+pre-registered design is
 [`docs/superpowers/specs/2026-09-02-flux-design.md`](docs/superpowers/specs/2026-09-02-flux-design.md);
 it opens with a $0 census over black-oxide's committed Rust-arm attempts
-that decides whether the live experiment is funded at all.
+that decides whether the live experiment is funded at all. That census
+ran and read **k = 15 against a derived floor of 16**: the lever's
+ceiling on large-tier pass@1 is 0.075, below the protocol's 0.080 noise
+floor, and its deterministic component is 0.010 — thirteen of the
+fifteen suggestion-fixed programs compile and print the wrong answer.
+The report is
+[`results/phase0-2026-09-02/REPORT.md`](results/phase0-2026-09-02/REPORT.md);
+the applier and census ship tested (24 tests, 18 mutations killed).
 
 **Kill criterion, in one line:** if fewer than 16 of the 200 committed
 large-tier first attempts can gain a compiling program from machine-
