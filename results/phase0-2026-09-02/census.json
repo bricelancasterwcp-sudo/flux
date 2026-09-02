@@ -1,0 +1,512 @@
+{
+  "arms": [
+    {
+      "arm": "base-rs-7",
+      "k_g": [
+        0,
+        0
+      ],
+      "results": "eval/results/v04-wave8-phaseb/results-small/base-rs-7",
+      "stored_table": {
+        "first_attempts": 200,
+        "first_codes": {
+          "E????": 1
+        },
+        "not_compiling": 1,
+        "ownership_class": 0
+      },
+      "summary": {
+        "any_diag_ma": 0,
+        "applied_and_compiles": 0,
+        "applier_states": {
+          "compiles": 457,
+          "still-fails": 4
+        },
+        "attempts": 461,
+        "drift": 0,
+        "dropped": {
+          "any_diag_ma": 457,
+          "first_diag_ma": 457,
+          "outcome": 461
+        },
+        "first_attempts": 200,
+        "first_diag_ma": 0,
+        "first_not_compiling_rederived": 1,
+        "greens": 0,
+        "outcomes": {}
+      },
+      "tier": "small"
+    },
+    {
+      "arm": "tune-rs-7",
+      "k_g": [
+        0,
+        0
+      ],
+      "results": "eval/results/v04-wave8-phaseb/results-small/tune-rs-7",
+      "stored_table": {
+        "first_attempts": 200,
+        "first_codes": {
+          "E0308": 10
+        },
+        "not_compiling": 10,
+        "ownership_class": 0
+      },
+      "summary": {
+        "any_diag_ma": 0,
+        "applied_and_compiles": 0,
+        "applier_states": {
+          "compiles": 238,
+          "still-fails": 40
+        },
+        "attempts": 278,
+        "drift": 0,
+        "dropped": {
+          "any_diag_ma": 238,
+          "first_diag_ma": 238,
+          "outcome": 278
+        },
+        "first_attempts": 200,
+        "first_diag_ma": 0,
+        "first_not_compiling_rederived": 10,
+        "greens": 0,
+        "outcomes": {}
+      },
+      "tier": "small"
+    },
+    {
+      "arm": "tune-rs-7",
+      "k_g": [
+        15,
+        2
+      ],
+      "results": "eval/results/v04-wave8-phaseb/results-large/tune-rs-7",
+      "stored_table": {
+        "first_attempts": 200,
+        "first_codes": {
+          "E0106": 1,
+          "E0277": 2,
+          "E0308": 16,
+          "E0425": 2,
+          "E0433": 1,
+          "E0434": 4,
+          "E0600": 1,
+          "E0606": 1,
+          "E0614": 4,
+          "E????": 5
+        },
+        "not_compiling": 37,
+        "ownership_class": 0
+      },
+      "summary": {
+        "any_diag_ma": 21,
+        "applied_and_compiles": 21,
+        "applier_states": {
+          "compiles": 581,
+          "still-fails": 87
+        },
+        "attempts": 668,
+        "drift": 1,
+        "dropped": {
+          "any_diag_ma": 560,
+          "first_diag_ma": 560,
+          "outcome": 647
+        },
+        "first_attempts": 200,
+        "first_diag_ma": 21,
+        "first_not_compiling_rederived": 37,
+        "greens": 2,
+        "outcomes": {
+          "green": 2,
+          "wrong-output": 19
+        }
+      },
+      "tier": "large"
+    },
+    {
+      "arm": "base-rs-14",
+      "k_g": [
+        0,
+        0
+      ],
+      "results": "eval/results/v04-wave8-14b-screen/results-small/base-rs-14",
+      "stored_table": {
+        "first_attempts": 60,
+        "first_codes": {},
+        "not_compiling": 0,
+        "ownership_class": 0
+      },
+      "summary": {
+        "any_diag_ma": 0,
+        "applied_and_compiles": 0,
+        "applier_states": {
+          "compiles": 141
+        },
+        "attempts": 141,
+        "drift": 0,
+        "dropped": {
+          "any_diag_ma": 141,
+          "first_diag_ma": 141,
+          "outcome": 141
+        },
+        "first_attempts": 60,
+        "first_diag_ma": 0,
+        "first_not_compiling_rederived": 0,
+        "greens": 0,
+        "outcomes": {}
+      },
+      "tier": "small"
+    },
+    {
+      "arm": "tune-rs-14",
+      "k_g": [
+        4,
+        0
+      ],
+      "results": "eval/results/v04-wave8-14b-screen/results-large/tune-rs-14",
+      "stored_table": {
+        "first_attempts": 60,
+        "first_codes": {
+          "E0308": 9,
+          "E0382": 4,
+          "E0615": 1
+        },
+        "not_compiling": 14,
+        "ownership_class": 4
+      },
+      "summary": {
+        "any_diag_ma": 4,
+        "applied_and_compiles": 4,
+        "applier_states": {
+          "compiles": 123,
+          "still-fails": 24
+        },
+        "attempts": 147,
+        "drift": 0,
+        "dropped": {
+          "any_diag_ma": 119,
+          "first_diag_ma": 119,
+          "outcome": 143
+        },
+        "first_attempts": 60,
+        "first_diag_ma": 4,
+        "first_not_compiling_rederived": 14,
+        "greens": 0,
+        "outcomes": {
+          "wrong-output": 4
+        }
+      },
+      "tier": "large"
+    }
+  ],
+  "deciding_arm": [
+    "tune-rs-7",
+    "large"
+  ],
+  "finished_utc": "2026-09-02T13:54:23+00:00",
+  "g": 2,
+  "k": 15,
+  "k_floor": 16,
+  "plan": "docs/superpowers/specs/2026-09-02-flux-design.md \u00a72",
+  "probe_b": [
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "use-after-move",
+      "expected_code": "E0382",
+      "id": "p01",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "double-consume",
+      "expected_code": "E0382",
+      "id": "p02",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "loop-carried-move",
+      "expected_code": "E0382",
+      "id": "p03",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 0,
+      "applier_state": "still-fails",
+      "broken_compiles": false,
+      "codes_applied": [],
+      "defect": "assign-to-iterated-vec",
+      "expected_code": "E0502",
+      "id": "p04",
+      "outcome": null,
+      "rederived_first_code": "E0502"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-then-read-field",
+      "expected_code": "E0382",
+      "id": "p05",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-inside-branch",
+      "expected_code": "E0382",
+      "id": "p06",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-into-struct-literal",
+      "expected_code": "E0382",
+      "id": "p07",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-into-enum-variant",
+      "expected_code": "E0382",
+      "id": "p08",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-into-vec-push",
+      "expected_code": "E0382",
+      "id": "p09",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 0,
+      "applier_state": "still-fails",
+      "broken_compiles": false,
+      "codes_applied": [],
+      "defect": "move-via-struct-update",
+      "expected_code": "E0382",
+      "id": "p10",
+      "outcome": null,
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "destructure-then-use",
+      "expected_code": "E0382",
+      "id": "p11",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-in-match-scrutinee",
+      "expected_code": "E0382",
+      "id": "p12",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-in-while-body",
+      "expected_code": "E0382",
+      "id": "p13",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-then-early-return",
+      "expected_code": "E0382",
+      "id": "p14",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 0,
+      "applier_state": "still-fails",
+      "broken_compiles": false,
+      "codes_applied": [],
+      "defect": "move-via-question-mark",
+      "expected_code": "E0382",
+      "id": "p15",
+      "outcome": null,
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-in-nested-block",
+      "expected_code": "E0382",
+      "id": "p16",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "accumulate-without-reassign",
+      "expected_code": "E0382",
+      "id": "p17",
+      "outcome": "wrong-output",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "double-move-in-one-expression",
+      "expected_code": "E0382",
+      "id": "p18",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0382"
+      ],
+      "defect": "move-then-conditional-use",
+      "expected_code": "E0382",
+      "id": "p19",
+      "outcome": "green",
+      "rederived_first_code": "E0382"
+    },
+    {
+      "applications": 1,
+      "applier_state": "compiles",
+      "broken_compiles": false,
+      "codes_applied": [
+        "E0505"
+      ],
+      "defect": "consume-while-iterating",
+      "expected_code": "E0505",
+      "id": "p20",
+      "outcome": "green",
+      "rederived_first_code": "E0505"
+    }
+  ],
+  "provenance": {
+    "black_oxide_commit": "8f5399c89305ab547c1fc024f73d5548fa38d3ce",
+    "limit": null,
+    "rustc": "rustc 1.96.0 (ac68faa20 2026-05-25)",
+    "triples_sha256": {
+      "eval/results/v04-wave8-14b-screen/results-large/tune-rs-14/tune-rs-14-gen-s1/triples.jsonl": "5e6262f5f2ef01d3d01bb05e201356dd28080346481ac35a6cc3d7991d7688ba",
+      "eval/results/v04-wave8-14b-screen/results-large/tune-rs-14/tune-rs-14-gen-s2/triples.jsonl": "788c039ec33f5788378067991062bbdb9c39d04743191ff3992fb1cc97bad824",
+      "eval/results/v04-wave8-14b-screen/results-large/tune-rs-14/tune-rs-14-gen-s3/triples.jsonl": "536700a7d423f2ab57d67e88a588b35f89151895def4b382d00cffef2f8dc1d1",
+      "eval/results/v04-wave8-14b-screen/results-small/base-rs-14/base-rs-14-gen-s1/triples.jsonl": "b2399b5903a8f5d9017dee2a977120d73fdf65cb1fe416e56f9c1b45d92cdd55",
+      "eval/results/v04-wave8-14b-screen/results-small/base-rs-14/base-rs-14-gen-s2/triples.jsonl": "48d0b8a4e542feff0631964052c8f5850b3ffcbfa76837aa651a6f701278192e",
+      "eval/results/v04-wave8-14b-screen/results-small/base-rs-14/base-rs-14-gen-s3/triples.jsonl": "0030799d489dd9e5052827dfcca99540a84a847f5319427493f006815ec65acc",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s1/triples.jsonl": "a253137e6e9335fbbbc89fa98c4a03040a3aac1a7c787e10818a6e7b9c2d54ac",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s10/triples.jsonl": "33f5ad0520a47338b5ef4d238daaea526ca441c7326ef64b1b024d554841c72d",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s2/triples.jsonl": "4eed5b86f99484463b418227ffea0c172965a520abf4d9fbd90af3d6fc7e38e2",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s3/triples.jsonl": "02295d21a98387b881b2206b42646f80ee89f128577e39d6b4c3e710a14e8944",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s4/triples.jsonl": "c6e06297c5ca8a1f785a3acfd245bf2392d7941da5de92c91e26eaef6294387c",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s5/triples.jsonl": "cb095492e73d3b3f55d1205a2937b1d26bd0c14614bd3f90635b644221f0a969",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s6/triples.jsonl": "4f2e38fdd66e58039887fb1966a0f9d164879873c8a68127ad6a4f8a3e8c46f2",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s7/triples.jsonl": "615d581e8b368278b2ddf580705011bb5c7344dd0cb61ea8f77b0b332a3b8790",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s8/triples.jsonl": "493f6432fbcdeb09d868a29f30b09cad6b15a249f84a67275c13c954ae33d463",
+      "eval/results/v04-wave8-phaseb/results-large/tune-rs-7/tune-rs-7-gen-s9/triples.jsonl": "7b21925d8ea3834b4e5759de19d852d41c7c5f6fb63f6c6643478b992cb216db",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s1/triples.jsonl": "8965e6f66f66fa2d1043bbbec8d4a516757bbc40a88855ed58efd437b2258970",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s10/triples.jsonl": "dfb2a292a8ae8a444a3d594ab5219361d41d1db91166b2d942b26595adcf8df6",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s2/triples.jsonl": "e78ae1a7a0c6b4ef056df424d59e622c405500d7ea25de2ec22feb24b70c5656",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s3/triples.jsonl": "022c1adf8fedd91446ca7c0db4e0e09481255ef6fa2df22bd693251381b96fc6",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s4/triples.jsonl": "36add29ea31470e0ea5f55a46b2a7e356ce24e1c65a8d651dc65664e96124bce",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s5/triples.jsonl": "4f69f64c7222d4af73aaee50fda839af06b7723d02a4971f5fc4956224170cdb",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s6/triples.jsonl": "4ff1d54a9979d787e53323466187ad46765014f41e0dd341ad7a369fbde73e6b",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s7/triples.jsonl": "c5c569018d8f9474a88a090d3c4ceee8801658d63e31e5966c08fb5ba389983b",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s8/triples.jsonl": "73a569b8c2c1d1a0dc7cea482cfd82387a6545fc76b5e149cd481b2f4e1d7f12",
+      "eval/results/v04-wave8-phaseb/results-small/base-rs-7/base-rs-7-gen-s9/triples.jsonl": "2cf1ac53bed138550fcc73a1e34217fd4794424391c53c9aaafb3b7062e12e6e",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s1/triples.jsonl": "b418ef8576f2e84682c2c660e0cc70c05550f801a3ea449f6260cc54006ab44d",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s10/triples.jsonl": "7759042923b92ba80d2ee1ecf86aea6ada04c2d51a7dbf9c3456c593acd193c3",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s2/triples.jsonl": "b36e5076edfb1bec7c569ee9747c6747a1b5e7d0cde831d4ab7e051b955ce07f",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s3/triples.jsonl": "25192440598697cef5404110571451e22434e428775de913aafc1e2b5689abdb",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s4/triples.jsonl": "1d89d63701d4885149506c88429f4a71c9899946cff4b799795a6d26be1b9506",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s5/triples.jsonl": "32f0bfc38a5704b7d2fbaa48274cfc933b246231e909cdc5cb155eb5d4b9a9d3",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s6/triples.jsonl": "c43621037760295e69857d765145228b2beeef53ca27a761281b023c477b2a91",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s7/triples.jsonl": "843871c7a1b785831c3c7c3b497bb11d399139129bea42133854095de03e28cb",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s8/triples.jsonl": "99d018f3647a100c101faabe609387d7848fa0b939b4b5812cbe2ed5ab3acbfa",
+      "eval/results/v04-wave8-phaseb/results-small/tune-rs-7/tune-rs-7-gen-s9/triples.jsonl": "c5cf9f237e4056ef7082fa0044309ccd12daa7b4e8b785399bc89fd24911b06f"
+    }
+  },
+  "reading": "not-funded",
+  "started_utc": "2026-09-02T13:54:17+00:00"
+}

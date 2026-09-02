@@ -10,6 +10,8 @@ ever sees a diagnostic. The question is how much of the small-model Rust
 deficit that removes on its own, and whether the model repairs the
 residual better than it repairs the raw program.
 
+**Status (2026-09-02): CLOSED as a $0 census.** Phase 0 ran on the committed data and read **k = 15 against a derived floor of 16 — Phase 1 not funded.** Ceiling on large-tier pass@1 0.075, deterministic component 0.010; 13 of 15 suggestion-fixed programs compile and print the wrong answer. Report: `results/phase0-2026-09-02/REPORT.md`.
+
 ## Status
 
 **Spec stage, awaiting owner approval.** Nothing has been measured by
