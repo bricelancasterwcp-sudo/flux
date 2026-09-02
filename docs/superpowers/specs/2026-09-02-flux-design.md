@@ -320,7 +320,12 @@ of scope here.
 
 ## 5. Reuse contract with black-oxide
 
-Pinned at commit **`521f602f4aaf4ef18c7f724a3df3afcc2e27a100`**, imported
+Pinned at commit **`8f5399c8`** (main after the wave-9 merge; bumped from
+`521f602f` on 2026-09-02 before the Phase 0 run — `git diff --stat
+521f602f..8f5399c8 -- eval/results/v04-wave8-phaseb
+eval/results/v04-wave8-14b-screen eval/probes.jsonl eval/tasks.jsonl
+eval/tasks-large.jsonl` is empty, so every file the census reads is
+byte-identical at both), imported
 via `PYTHONPATH=~/workspace/oxide` the way bloomery pins assay. The
 driver asserts the checkout's `git rev-parse HEAD` equals the pin before
 any session runs. The pin is bumped only by a commit that says why.
