@@ -4,8 +4,8 @@
 repair lands?**
 
 Soldering flux cleans the oxide off a surface so the joint takes. This
-tool applies rustc's `MachineApplicable` suggestions — the machinery
-behind `cargo fix` — automatically, to a fixed point, *before* a model
+tool applies rustc's `MachineApplicable` suggestions (the machinery
+behind `cargo fix`) automatically, to a fixed point, *before* a model
 ever sees a diagnostic. The question is how much of the small-model Rust
 deficit that removes on its own, and whether the model repairs the
 residual better than it repairs the raw program.
@@ -19,7 +19,7 @@ it opens with a $0 census over black-oxide's committed Rust-arm attempts
 that decides whether the live experiment is funded at all. That census
 ran and read **k = 15 against a derived floor of 16**: the lever's
 ceiling on large-tier pass@1 is 0.075, below the protocol's 0.080 noise
-floor, and its deterministic component is 0.010 — thirteen of the
+floor, and its deterministic component is 0.010. Thirteen of the
 fifteen suggestion-fixed programs compile and print the wrong answer.
 The report is
 [`results/phase0-2026-09-02/REPORT.md`](results/phase0-2026-09-02/REPORT.md);
@@ -51,7 +51,7 @@ Three sibling projects, all public under the same account:
   **+59.0 / +35.0 / +9.5pp** on qwen2.5-coder-7b / codegemma-7b /
   granite-code-8b, of which about **+10pp** is ownership and the rest is
   surface ergonomics, and **0.0pp** at frontier. Its design loop then
-  found that every durable win was *subtractive* — ceremony removed —
+  found that every durable win was *subtractive* (ceremony removed),
   while every additive construct paid for its novelty.
 - **[assay](https://github.com/bricelancasterwcp-sudo/assay)** measures
   what a locally served model can actually do, and named the rule that
@@ -91,4 +91,4 @@ this repository.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).

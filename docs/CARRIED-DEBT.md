@@ -4,20 +4,20 @@ The durable record of every deferred decision, appended at each merge:
 *what the slice settled* → *deferred, with rulings* → *process lessons*.
 Resolved items are struck through, never deleted.
 
-## Spec stage (2026-09-02) — nothing merged yet
+## Spec stage (2026-09-02): nothing merged yet
 
 Open rulings live at the end of
 `docs/superpowers/specs/2026-09-02-flux-design.md` until the owner rules
 on them; they move here, with the ruling, when the first slice lands.
 
-## Phase 0 census — 2026-09-02 (closes the project)
+## Phase 0 census, 2026-09-02 (closes the project)
 
 **Settled.** `k = 15`, `g = 2`, floor 16 → not funded; flux is a $0
 census (`results/phase0-2026-09-02/REPORT.md`). The applier ships with
 its seven invariants tested and eighteen mutations killed; the §2.2 table
 reproduces to the digit. rustc's own `MachineApplicable` `.clone()` on
 the accumulate-without-reassign probe (p17) yields a compiling, silent,
-wrong program — the `OX0403` trap exists in rustc too.
+wrong program. The `OX0403` trap exists in rustc too.
 
 **Deferred, with rulings.**
 - `MaybeIncorrect` suggestions as a lever: never applied, by

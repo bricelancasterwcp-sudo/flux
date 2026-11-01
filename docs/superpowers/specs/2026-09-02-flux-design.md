@@ -1,4 +1,4 @@
-# flux — deterministic pre-repair for real Rust: pre-registered design
+# flux: deterministic pre-repair for real Rust (pre-registered design)
 
 **Date:** 2026-09-02. **Status:** awaiting owner approval. Nothing below has
 been run. Written before any instrument exists, per the house method
@@ -21,13 +21,13 @@ repair it.
 |---|---|
 | definition | a program is *green* when it compiles under `rustc --edition 2021` and its stdout equals the task's `expected_stdout` byte for byte (black-oxide SPEC §45, unchanged) |
 | presentation | unconstrained decoding; the arm's own initial prompt; repair prompt = black-oxide `eval/repair.py` with the **post-applier** program and **residual** diagnostics |
-| sampler | temperature 0.2, top_p 0.95, num_ctx 8192, num_predict 2048, seeds 1–10, llama-server backend — pinned in black-oxide `eval/exp_campaign.py` and recorded in every committed `provenance.json` (read from `eval/results/v04-wave8-phaseb/results-small/base-rs-7/provenance.json`) |
+| sampler | temperature 0.2, top_p 0.95, num_ctx 8192, num_predict 2048, seeds 1–10, llama-server backend, pinned in black-oxide `eval/exp_campaign.py` and recorded in every committed `provenance.json` (read from `eval/results/v04-wave8-phaseb/results-small/base-rs-7/provenance.json`) |
 | applier | rustc version recorded per run; `suggestion_applicability == "MachineApplicable"` only; fixed point with a round cap (§4) |
 
 A pass rate quoted without the applier's rustc version is not a property
 of the model: applicability marks change between rustc releases.
 
-## 2. Phase 0 — the $0 census that decides whether anything is funded
+## 2. Phase 0: the $0 census that decides whether anything is funded
 
 ### 2.1 What black-oxide stored, read from the code
 
@@ -40,8 +40,8 @@ the primary span, and non-primary span locations as `notes`. It pins
 What *is* retained is the full program text of every attempt
 (`triples.jsonl`, field `code`), the stored first diagnostic code, and
 the task's `expected_stdout`. So the census re-runs rustc on committed
-programs. That is $0, deterministic, and — because the oracle is stored
-too — it can measure not only "does a suggestion exist" but "does
+programs. That is $0, deterministic, and (because the oracle is stored
+too), it can measure not only "does a suggestion exist" but "does
 applying it produce a green program", with no model in the loop.
 
 Verified on this box (rustc 1.96.0, 2026-05-25): a two-defect program
@@ -61,7 +61,7 @@ E0597, E0373}.
 | `base-rs-7` | small | 200 | **1** | 0 | E???? 1 |
 | `tune-rs-7` | small | 200 | 10 | 0 | E0308 10 |
 | `tune-rs-7` | **large** | 200 | **37** | **0** | E0308 16, E???? 5, E0434 4, E0614 4, E0277 2, E0425 2, E0606 1, E0106 1, E0433 1, E0600 1 |
-| `base-rs-14` | small | 60 | 0 | 0 | — |
+| `base-rs-14` | small | 60 | 0 | 0 | none |
 | `tune-rs-14` | **large** | 60 | 14 | **4** | E0308 9, E0382 4, E0615 1 |
 
 Sources: `eval/results/v04-wave8-phaseb/results-{small,large}/<arm>/*-gen-s*/triples.jsonl`
@@ -81,7 +81,7 @@ large compiles 81.5% / pass@1 0.200
    Rust deficit on the small tier is programs that compile and print the
    wrong thing (0.565 pass against 0.995 compile), which no compiler
    suggestion addresses. On the large tier the 37 compile failures are
-   type errors (`E0308`), scoping (`E0434`), and derefs (`E0614`) — zero
+   type errors (`E0308`), scoping (`E0434`), and derefs (`E0614`). Zero
    ownership codes. Ownership codes appear only at 14B (4 of 14), which
    this box cannot serve at q8_0 in 16 GB.
 3. **`E0308` decides it.** Sixteen of the 37 large-tier failures are
@@ -102,19 +102,19 @@ pinned black-oxide checkout, or the instrument does not count.
 
 One module, `flux/census.py`, stdlib only, with the applier of §4 as its
 dependency. For each of the five Rust arms above, for **every** attempt
-(not only first attempts — later ones bound the tokens-to-green effect):
+(not only first attempts; later ones bound the tokens-to-green effect):
 
 1. Re-run `rustc --edition 2021 --error-format=json --emit=metadata` on
    the stored `code` under the pinned rustc. Record the first error's
    code. **Drift check:** report every attempt whose re-derived first
-   code differs from the stored one — rustc moved between the pod's
+   code differs from the stored one: rustc moved between the pod's
    version and 1.96.0, and that is a structural comparison the rest of
    the census depends on.
 2. Record whether the first diagnostic carries at least one
    `MachineApplicable` span, and whether *any* diagnostic on the attempt
    does.
 3. Run the applier to its fixed point. Record: rounds, applications
-   (code, span, replacement), and the terminal state — `compiles`,
+   (code, span, replacement), and the terminal state: `compiles`,
    `still-fails(code)`, `round-cap`, or `overlap-refused`.
 4. For every attempt the applier brings to a compiling program: build,
    run under the black-oxide 10 s cap, compare stdout. Record `green`
@@ -173,14 +173,14 @@ serves 14B only at q4_K_M in 16 GB, which is a different lens from the
 q8_0 the committed data used, and robigo already measured what 14B
 costs in KV geometry at this VRAM.
 
-## 3. Phase 1 — the live experiment, funded only by §2.4
+## 3. Phase 1: the live experiment, funded only by §2.4
 
 ### 3.1 Arms
 
 | # | arm | task set | role |
 |---|---|---|---|
 | 1 | `base-rs-7` | small (`eval/tasks.jsonl`, 20 tasks) | **drift guard.** Anchor pass@1 **0.565**, reproduced in eight environments to the digit, including this box (`eval/results/v04-wave8-phaseb/REPORT.md`; `eval/results/runpod-exp/REPORT.md` "byte-exact to the committed local v03c rust rate"). A miss voids the run. |
-| 2 | `base-rs-7` | large (`eval/tasks-large.jsonl`, 20 tasks) | **baseline.** No anchor exists — wave 8 ran only tuned arms on the large tier — so this is a new row and is reported as one. |
+| 2 | `base-rs-7` | large (`eval/tasks-large.jsonl`, 20 tasks) | **baseline.** No anchor exists (wave 8 ran only tuned arms on the large tier), so this is a new row and is reported as one. |
 | 3 | `base-rs-7 + flux` | large | **treatment.** Same model, same prompt, same seeds; the applier runs on every submission before the oracle and before any repair prompt. |
 | 4 | applier alone on arm 2's submissions | large | **no-model floor.** Derived from arm 2's stored attempts, not a live arm; it is Phase 0's instrument run on Phase 1's data. |
 
@@ -188,7 +188,7 @@ Subject: `qwen2.5-coder:7b-instruct-q8_0`, the Ollama blob on this box
 served by llama-server with `--expect-model-path` guarding identity. The
 other two black-oxide families (`codegemma:7b-instruct-q8_0`,
 `granite-code:8b-instruct-q8_0`, both present locally) run only if arm 3
-vs arm 2 clears its band — a subject that cannot discriminate is dropped
+vs arm 2 clears its band: a subject that cannot discriminate is dropped
 before it is measured, not after.
 
 The untuned model is the subject, not the tuned one: the v5 Rust
@@ -216,7 +216,7 @@ the function, and by flux code only where it does not.
 
 | endpoint | definition | primary? |
 |---|---|---|
-| **pass@1** | share of sessions whose first submission is green *after the arm's own pre-judgement step* — identity for arm 2, applier for arm 3. Both arms also report the raw model-only `first_passed`, so the applier's contribution to attempt 1 is visible, not folded. | **yes** |
+| **pass@1** | share of sessions whose first submission is green *after the arm's own pre-judgement step* (identity for arm 2, applier for arm 3). Both arms also report the raw model-only `first_passed`, so the applier's contribution to attempt 1 is visible, not folded. | **yes** |
 | first-compile rate | same, for compiles | secondary |
 | tokens-to-green | composition-controlled: pair on (seed, task), keep cells green in **both** arms, ratio of means (`paired_tokens_to_green`, `green_pair_keys`). Black-oxide SPEC §59.7 records why the per-arm mean is a defective estimand: a pass-rate change admits harder tasks into one arm's green set and moves the ratio for a non-efficiency reason. | secondary |
 | applier landing | arm 4: share of arm-2 first attempts the applier alone brings to green | secondary |
@@ -228,7 +228,7 @@ near 0.20 is 0.080 (§2.4).
 | arm 3 − arm 2, pass@1 | reading |
 |---|---|
 | ≥ +0.080 | the lever is real at this tier; report `g / 200` beside it so the deterministic share is separated from the model's |
-| within ±0.080 | indistinguishable from sampling at n = 200; **not extended** to more seeds after seeing the number — the protocol's n was fixed here |
+| within ±0.080 | indistinguishable from sampling at n = 200; **not extended** to more seeds after seeing the number, because the protocol's n was fixed here |
 | ≤ −0.080 | the applier harms repair (a cleaned program misleads the model); report it |
 
 The tokens-to-green band is set from arm 2's own dispersion once arm 2
@@ -269,7 +269,7 @@ including setup) scaled ×1.5 for Vulkan on the RTX 5080:
 No RunPod. Runs over ~2 h are OS-detached with a `.DONE`/`.FAILED`
 marker and a watcher, per the house rule.
 
-## 4. The applier — invariants and their falsification tests
+## 4. The applier: invariants and their falsification tests
 
 Interface: `apply_fixpoint(source: str, *, rustc: Path, round_cap: int = 8) -> Applied`
 where `Applied` carries the final source, the ordered list of
@@ -283,26 +283,26 @@ broken (mutation-tested before it counts; `__pycache__` purged and
 1. **Identity on a compiling program.** `apply_fixpoint(p) == p` with
    zero applications when `p` compiles. Test: a green task reference from
    `eval/tasks-large.jsonl`'s Rust references passes through unchanged;
-   mutation: make the applier apply warnings' suggestions too — the test
+   mutation: make the applier apply warnings' suggestions too. The test
    must fail.
 2. **Only `MachineApplicable`.** A diagnostic whose only suggestion is
    `MaybeIncorrect` or `HasPlaceholders` is never applied. Test: a
    program whose sole suggestion is `HasPlaceholders` is returned
    unchanged with terminal state `still-fails(code)`; mutation: accept
-   `MaybeIncorrect` — must fail.
+   `MaybeIncorrect`; the test must fail.
 3. **No overlapping spans in one round.** If two applications in the
    same round overlap byte ranges, apply neither and terminate
    `overlap-refused`. Test: a crafted pair of overlapping suggestions;
-   mutation: apply the first and skip the second — must fail.
+   mutation: apply the first and skip the second; the test must fail.
 4. **Right-to-left application within a round**, so earlier byte offsets
    stay valid. Test: two non-overlapping suggestions on one line, both
-   land at the positions rustc named; mutation: left-to-right — must
-   fail on the second span's position.
+   land at the positions rustc named; mutation: left-to-right; the test
+   must fail on the second span's position.
 5. **Bounded.** Terminates within `round_cap` rounds with state
    `round-cap` if no fixed point is reached. Test: a program whose
    suggestion re-introduces the same error (constructed, or a stub rustc
-   that always returns the same suggestion); mutation: remove the cap —
-   must hang, so the test runs under a timeout and fails on it.
+   that always returns the same suggestion); mutation: remove the cap;
+   it must hang, so the test runs under a timeout and fails on it.
 6. **Every application is logged with the code that produced it**, and
    the log round-trips through JSON with dataclass equality and a
    completeness check (every field of `Applied` present in the payload).
@@ -321,7 +321,7 @@ of scope here.
 ## 5. Reuse contract with black-oxide
 
 Pinned at commit **`8f5399c8`** (main after the wave-9 merge; bumped from
-`521f602f` on 2026-09-02 before the Phase 0 run — `git diff --stat
+`521f602f` on 2026-09-02 before the Phase 0 run: `git diff --stat
 521f602f..8f5399c8 -- eval/results/v04-wave8-phaseb
 eval/results/v04-wave8-14b-screen eval/probes.jsonl eval/tasks.jsonl
 eval/tasks-large.jsonl` is empty, so every file the census reads is
@@ -336,7 +336,7 @@ any session runs. The pin is bumped only by a commit that says why.
 |---|---|
 | `eval.harness` | `load_tasks`, `build_prompt`, `new_session`, `check_file`, `run_file`, `MAX_ATTEMPTS`, `OUTPUT_CONTRACT` |
 | `eval.rustc_adapter` | `rustc_check`, `rustc_build`, `run_binary`, `adapt_diagnostics` (the stored diagnostic shape) |
-| `eval.repair` | `initial_context`, `render_diagnostics`, `FIX_INSTRUCTION` — the repair prompt is byte-identical in both arms |
+| `eval.repair` | `initial_context`, `render_diagnostics`, `FIX_INSTRUCTION` (the repair prompt is byte-identical in both arms) |
 | `eval.driver` | `run_session`, with the applier injected at the seam in §3.2 (a small upstream hook or a flux-side subclass; the plan decides, the spec requires that arm 2 be the unmodified loop) |
 | `eval.llamacpp`, `eval.models` | the client, `ModelError`, `estimate_tokens` |
 | `eval.experiment_report` | `load_cells`, `load_cells_keyed`, `green_pair_keys`, `paired_tokens_to_green`, `paired_pass1` |
@@ -346,7 +346,7 @@ any session runs. The pin is bumped only by a commit that says why.
 its explicit dialect); `eval.probe` and `eval.probe_campaign` beyond
 reading the Rust records of `probes.jsonl` as data; `eval.demand_census`,
 `eval.cost_census`, `eval.learnability`, `eval.token_match`,
-`eval.train_corpus`, `eval.deformation`, `eval.wave8_*` — all of them
+`eval.train_corpus`, `eval.deformation`, `eval.wave8_*`. All of them
 measure the Oxide language, and importing one would make a Rust-only
 result depend on it.
 
